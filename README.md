@@ -22,7 +22,7 @@ Install Taskfile into project:
 
 Install Poetry:
 
-    * See full [installation documentation][]
+* See full [installation documentation][]
 
 ## Usage
 
