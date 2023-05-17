@@ -76,5 +76,5 @@ The [MIT] License.
 [Black]: https://pypi.org/project/black/
 [isort]: https://pycqa.github.io/isort/
 [Poetry]: https://pypi.org/project/poetry/
-[installation documentation] https://python-poetry.org/docs/#installing-with-the-official-installer
+[installation documentation]: https://python-poetry.org/docs/#installing-with-the-official-installer
 [MIT]: LICENSE
