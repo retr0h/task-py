@@ -1,0 +1,64 @@
+---
+version: "3"
+
+vars:
+  VET_CONFIG: "{{ .GIT_ROOT }}/.flake8"
+  UNIT_CMD: poetry run py.test -s -vvv
+  # No current defaults
+  COV_CMD:
+  RUN_CMD:
+
+tasks:
+  deps:
+    desc: Check dependencies are installed.
+    cmds:
+      - echo "Dependency check OK"
+    preconditions:
+      - sh: command -v poetry
+        msg: "Poetry not installed. See https://python-poetry.org/docs/#installation"
+
+  mod:
+    desc: Module maintenance
+    cmds:
+      - poetry install
+
+  vet:
+    desc: Report likely mistakes in packages
+    cmds:
+      - poetry run flake8 --config {{ .VET_CONFIG }}
+
+  run:
+    desc: Run Python program
+    cmds:
+      - "{{ .RUN_CMD }}"
+
+  unit:
+    desc: Test packages
+    cmds:
+      - "{{ .UNIT_CMD }}"
+
+  test:
+    desc: Test all
+    cmds:
+      - task: deps
+      - task: mod
+      - task: fmt:check
+      - task: vet
+      - task: cov
+
+  fmt:
+    desc: Reformat files whose formatting differs from `fmt_command`
+    cmds:
+      - poetry run black .
+      - poetry run isort .
+
+  cov:
+    desc: Generate coverage
+    cmds:
+      - "{{ .COV_CMD }}"
+
+  fmt:check:
+    desc: Check files whose formatting differs from `fmt_command`
+    cmds:
+      - poetry run black --diff --check .
+      - poetry run isort --check-only --diff .
