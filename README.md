@@ -1,12 +1,13 @@
-# Task Go
+# Task Py
 
-A prescriptive Golang [Task][] runner.
+A prescriptive Python [Task][] runner.
 
 ## Prescriptivity
 
 * Code linting by [flake8][]
 * The [pytest][] test framework
-* Source formatting with [black][] and [isort][]
+* Source formatting with [Black][] and [isort][]
+* Packaging and dependency management with [Poetry][]
 
 ## Install
 
@@ -16,8 +17,12 @@ Install [Task][]:
 
 Install Taskfile into project:
 
-    $ curl -o Taskfile.yml https://raw.githubusercontent.com/retr0h/task-go/main/Taskfile.yml
+    $ curl -o Taskfile.yml https://raw.githubusercontent.com/retr0h/task-py/main/Taskfile.yml
     $ task
+
+Install Poetry:
+
+    * See full [installation documentation][]
 
 ## Usage
 
@@ -49,11 +54,11 @@ Generate coverage:
 
     $ task cov
 
-Reformat files whose formatting differs from `go_fmt_command`:
+Reformat files whose formatting differs from `py_fmt_command`:
 
     $ task fmt
 
-Check files whose formatting differs from `go_fmt_command`:
+Check files whose formatting differs from `py_fmt_command`:
 
     $ task fmt:check
 
@@ -68,6 +73,8 @@ The [MIT] License.
 [Task]: https://github.com/go-task/task
 [flake8]: https://flake8.pycqa.org/en/latest/
 [pytest]: https://docs.pytest.org/en/7.3.x/
-[black]: https://pypi.org/project/black/
+[Black]: https://pypi.org/project/black/
 [isort]: https://pycqa.github.io/isort/
+[Poetry]: https://pypi.org/project/poetry/
+[installation documentation] https://python-poetry.org/docs/#installing-with-the-official-installer
 [MIT]: LICENSE
