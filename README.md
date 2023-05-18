@@ -20,7 +20,7 @@ Install Taskfile into project:
     $ curl -o Taskfile.yml https://raw.githubusercontent.com/retr0h/task-py/main/Taskfile.yml
     $ task
 
-Install Poetry:
+Install [Poetry][]:
 
 * See full [installation documentation][]
 
